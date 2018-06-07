@@ -327,7 +327,7 @@ def pr2_mover(detected_objects):
     ###########################################################################
     # 6. Save dict info to yaml file
     ###########################################################################
-    yaml_filename = os.path.join(PROJECT_ROOT_DIR, "pick_up_result_{}.yaml".format(pick_up_list_idx))
+    yaml_filename = os.path.join(PROJECT_ROOT_DIR, "output_{}.yaml".format(pick_up_list_idx))
 
     try:
         send_to_yaml(yaml_filename, dict_list)
