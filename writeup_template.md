@@ -24,6 +24,21 @@ The SVM training code is reused in this project with some modification to adapt 
 
 For example, if `PICK_UP_LIST_NUM = 2`, then `training_set_2.sav` will be trained and a new model file `model_2.sav` will be generated in `REPO_ROOT` folder.
 
+In this project, a total of 50 samples for each object were collected for training. The confusion matrcies of trained SVM models are shown below:
+
+Test world 1 (pickup list 1)
+
+![alt text](./img/svm_normalized_confusion_matrix_1.png)
+
+Test world 2 (pickup list 2)
+
+![alt text](./img/svm_normalized_confusion_matrix_2.png)
+
+Test world 3 (pickup list 3)
+
+![alt text](./img/svm_normalized_confusion_matrix_3.png)
+
+The normalized confusion matrices suggest that the trained SVM models should work fine in object recognition down in the pipeline.
 
 ## III. Perception Pipeline
 To run the perception pipeline, first define the scenario and pick up list in `pick_place_project.launch` and then run:
@@ -53,8 +68,19 @@ Converted data is then appended to `dict_list` and eventually used to generate t
 After storing all dictionaries, the code will iterate over all objects and send ROS messages to `pick_place_routine`, which will pick and place each object one after another.
 
 ### 3. Result
-As in the screenshot below, objects are identified and the pick up trajectory is established after pick up message is sent.
+As in the screenshots below, objects are identified and the pick up trajectory is established after pick up message is sent.
+
+Test world 1 (pickup list 1)
+
 ![alt text](./img/perception_screenshot_1.png)
+
+Test world 2 (pickup list 2)
+
+![alt text](./img/perception_screenshot_2.png)
+
+Test world 3 (pickup list 3)
+
+![alt text](./img/perception_screenshot_3.png)
 
 Although the objects on the table are correctly identified, there are still some noises/outliers along the surface of the table. These outliers can potentially be removed by further fine tuning the statistical outlier filter.
 
